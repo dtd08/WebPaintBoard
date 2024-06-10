@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=DM+Serif+Text:ital@0;1&family=Do+Hyeon&display=swap');
+
+:root {
+    --border-radius: 7px;
+    --border: #000 2px solid;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: "Do Hyeon", sans-serif;
+    font-size: 16px;
+}
+
+body {
+    background-color: #FCDC94;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+#wrap {
+    /*  vw : 뷰포트 너비 기준 
+        vh : 뷰포트 높이 기준  */
+    width: 100vw;
+    height: 100vh;
+}
+
+#header {
+    width: 100%;
+    height: 7%;
+    display: flex;
+}
+
+.logo,
+.join {
+    position: relative;
+    width: 90px;
+    height: 70%;
+    top: 10%;
+    line-height: 5vh;
+    border-radius: 7px;
+}
+
+.logo {
+    background-color: #EF9C66;
+    left: 3vw;
+}
+
+.join {
+    background-color: #C8CFA0;
+    left: 78%;
+}
+
+#main {
+    height: calc(100vh - 70px);
+}
+
+#canvas {
+    margin: auto;
+    width: 94vw;
+    height: 60vh;
+    border: var(--border);
+    background-color: #efe;
+    border-radius: var(--border-radius);
+}
+
+#nav {
+    border: var(--border);
+    position: relative;
+    width: 94vw;
+    height: 20%;
+    left: 3vw;
+    top: 7%;
+    display: flex;
+}
+
+.menu {
+    width: 150px;
+    height: 100px;
+    background-color: #78ABA8;
+    border-radius: var(--border-radius);
+    margin: auto;
+}
+
+.menu img {
+    width: 100%;
+    height: 100%;
+}
