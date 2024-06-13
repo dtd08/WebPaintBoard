@@ -1,19 +1,54 @@
-// context 가져오기
-const canvas = document.getElementById("draw_board")
-const ctxt = canvas.getContext("2D");
-
-// path(선) 그리기
+// html에서 canvas 불러오기
+const canvas = document.getElementById("canvas");  // canvas 저장
 
 
-// 마우스를 따라 움직이게 하기
-const cursor_follower = document.getElementById("cursor_follower");
+// canvas event 감지
+let painting = false;
 
-document.onmousemove = (e) => {
-    cursor_follower.style.left = e.pageX + "px";
-    cursor_follower.style.top = e.pageY + "px";
+function stopPainting() {
+    painting = false;
+}
+
+function startPainting() {
+    painting = true;
+}
+
+function onMouseMove(event) {
+    const x = event.offsetX; // 마우스가 캔버스 안에서 움직일 때의 x값
+    const y = event.offsetY; //         ''       y값
+
+    if (!painting) { // 마우스를 클릭하지 않은 채로 이동할 때
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+    } else { // 마우스를 클릭한 채로 이동할 때
+        ctx.lineTo(x, y);
+        ctx.stroke();
+    }
+}
+
+if (canvas) {
+    canvas.addEventListener("mousemove", onMouseMove);
+    canvas.addEventListener("mousedown", startPainting);
+    canvas.addEventListener("mouseup", stopPainting);
+    canvas.addEventListener("mouseleave", stopPainting);
 }
 
 
-// 코드 참고 : https://m.blog.naver.com/3pmarketer/223103378261
-//          : https://velog.io/@commi1106/%EB%A7%88%EC%9A%B0%EC%8A%A4%EB%A5%BC-%EB%94%B0%EB%9D%BC-%EB%8B%A4%EB%8B%88%EB%8A%94-%EC%9A%94%EC%86%8C-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0
-//          : https://velog.io/@commi1106/canvas-%ED%83%9C%EA%B7%B8-%EB%A7%88%EC%9A%B0%EC%8A%A4%EB%A1%9C-%EA%B7%B8%EB%A6%BC-%EA%B7%B8%EB%A6%AC%EA%B8%B0
+// 선 그리기 기능
+/*
+    캔버스 요소에서 픽셀에 접근할 수 있는 방법 context를 이용하는 것이다. (context = 캔버스 안의 픽셀들)
+    context는 context variable을 선언하여 생성한다.
+*/
+
+// context를 선언 및 canvas 기본 셋팅
+const ctx = canvas.getContext("2d"); // 캔버스 안에서 픽셀 컨트롤 설정
+const INITIAL_COLOR = "#2c2c2c";
+
+canvas.width = 700;
+canvas.height = 700;
+
+ctx.fillStyle = "white";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+ctx.storekeStyle = INITIAL_COLOR;
+ctx.fillStyle = INITIAL_COLOR;
+ctx.lineWidth = 2.5;
