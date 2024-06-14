@@ -36,18 +36,19 @@ a {
 }
 
 #header {
-    width: 100%;
+    width: 94%;
     height: 7%;
     display: flex;
+    margin: 0 auto;
 }
 
 .logo,
 .join {
-    position: relative;
+    position: absolute;
     width: 90px;
-    height: 70%;
-    top: 10%;
-    line-height: 5vh;
+    height: 40px;
+    top: 10px;
+    line-height: 40px;
     border-radius: 7px;
     font-family: "Do Hyeon", sans-serif;
     background-color: #95D2B3;
@@ -58,7 +59,7 @@ a {
 }
 
 .join {
-    left: 78%;
+    right: 3vw;
 }
 
 #main {
@@ -70,7 +71,12 @@ a {
     width: 94vw;
     height: 60vh;
     border: var(--border);
-    background-color: #efe;
+    border-radius: var(--border-radius);
+}
+
+#canvas {
+    width: 100%;
+    height: 100%;
     border-radius: var(--border-radius);
 }
 
@@ -86,21 +92,13 @@ a {
 }
 
 .menu {
-    width: 180px;
-    height: 140px;
-    border-radius: var(--border-radius);
     margin: auto;
 }
-
-.menu img {
-    width: 100%;
-    height: 100%;
-}
-
 
 /* floppy */
 .floppy {
     width: 110px;
+    height: 130px;
     background-color: #ddd;
 }
 
@@ -116,10 +114,13 @@ a {
 
 .bucket img {
     width: 100%;
+    height: 100%;
 }
 
 /* pallete */
 .palette {
+    width: 180px;
+    height: 140px;
     border-radius: 30%;
     background-color: #f0c370;
     box-shadow: 3px 1px #b9934baa;
@@ -133,7 +134,7 @@ a {
 
 .color {
     border-radius: 50%;
-    width: 35px;
+    width: 20%;
     height: 35px;
     display: inline-block;
 }
@@ -144,6 +145,15 @@ a {
 }
 
 /* brush */
+.brush {
+    width: 110px;
+    height: 140px;
+}
+
+.brush img {
+    width: 100%;
+    height: 100%;
+}
 
 #footer {
     width: 100%;
