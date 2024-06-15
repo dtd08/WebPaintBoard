@@ -32,6 +32,7 @@ function onMouseMove(event) {
     const x = event.offsetX; // 마우스가 캔버스 안에서 움직일 때의 x값
     const y = event.offsetY; //         ''       y값
 
+    // 선 그리기 기능
     if (!painting) { // 마우스를 클릭하지 않은 채로 이동할 때
         ctx.beginPath();
         ctx.moveTo(x, y);
@@ -49,4 +50,14 @@ if (canvas) {
 }
 
 
-// 선 그리기 기능
+// 색상 선택 기능
+const colors = document.getElementsByClassName("color"); // 컬러칩 불러오기
+
+// 컬러칩 배열 내 각 컬러들에 대한 클릭 이벤트 감지
+Array.from(colors).forEach(color => color.addEventListener("click", handleColorClick));
+
+function handleColorClick(event) {
+    const color = event.target.style.backgroundColor;
+    ctx.strokeStyle = color;
+    ctx.fillStyle = color;
+} 
