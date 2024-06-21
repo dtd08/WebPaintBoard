@@ -10,8 +10,7 @@ const canvas = document.getElementById("canvas");  // canvas 저장
 const ctx = canvas.getContext("2d"); // 캔버스 안에서 픽셀 컨트롤 설정
 const INITIAL_COLOR = "#000";
 
-ctx.fillStyle = "white";
-ctx.fillRect(0, 0, canvas.width, canvas.height);
+// ctx.fillRect(0, 0, canvas.width, canvas.height); // 순서대로 x좌표, y좌표, 가로길이, 세로길이
 ctx.strokeStyle = INITIAL_COLOR;
 ctx.fillStyle = INITIAL_COLOR;
 ctx.lineWidth = 2.5;
@@ -87,4 +86,59 @@ function handleInput() {
     let sizeValue = brushSize.value;
     ctx.lineWidth = sizeValue;
     console.log(sizeValue);
+}
+
+
+/// 채우기 기능
+const bucket = document.querySelector(".bucket"); // 채우기 버튼
+
+if (bucket) { // 채우기 통 클릭 감지
+    bucket.addEventListener("click", handleMode);
+}
+
+let filling = false; // paint 모드 -> fill || !paint 모드 -> paint 실행
+
+function fillCanvas() { // 채우기 함수
+    if (filling) {
+        ctx.fillRect(0, 0, canvas.width, canvas.height); // 캔버스 크기만큼 채우기
+    }
+}
+
+function handleMode() { // bucket 클릭 시 실행 함수
+    const bucketTxt = document.querySelector(".bucket > span");
+    if (filling === true) {
+        filling = false;
+        bucketTxt.innerHTML = "FILL";
+    } else {
+        filling = true;
+        fillCanvas();
+        bucketTxt.innerHTML = "PAINT";
+    }
+}
+
+
+/// 전체 지우기 기능
+const eraser = document.querySelector(".eraser");
+
+eraser.addEventListener("click", () => {
+    const nowColor = ctx.fillStyle; // 마지막 색상 저장
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvas.width, canvas.height); // 초기화
+    ctx.fillStyle = nowColor; // 마지막 색상으로 다시 설정
+});
+
+
+/// 저장 기능
+const save = document.querySelector(".save");
+
+if (save) {
+    save.addEventListener("click", saveImg);
+}
+
+function saveImg() {
+    const img = canvas.toDataURL("image/png"); // 캔버스 데이터 -> 이미지
+    const link = document.createElement("a"); // html에 a태그 생성
+    link.href = img; // 링크에 이미지 할당
+    link.download = ("download"); // 링크 다운 시 이름 할당
+    link.click(); // 링크 클릭 이벤트 실행
 }
