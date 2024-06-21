@@ -13,9 +13,7 @@
 <body>
     <div id="wrap">
         <header id="header">
-            <div class="logo">
-                <img src="#" alt="로고">
-            </div>
+            <div class="save" title="저장">WPB</div>
             <div class="join">
                 <a href="#">회원가입</a>
             </div>
@@ -25,14 +23,15 @@
                 <canvas id="canvas"></canvas>
             </section>
             <nav id="nav">
-                <div class="floppy menu">
-                    <img src="Imgs/floppy.png" alt="플로피 디스크">
+                <div class="eraser menu">
+                    <img src="Imgs/eraser.png" alt="지우개" title="전체 지우기">
                 </div>
                 <div class="bucket menu">
-                    <img src="Imgs/bucket.png" alt="페인트통">
+                    <span>FILL</span>
+                    <img src="Imgs/bucket.png" alt="페인트통" title="배경 채우기">
                 </div>
                 <div class="palette menu">
-                    <div class="colors">
+                    <div class="colors" title="색상 변경">
                         <div class="color" style="background-color: black"></div>
                         <div class="color" style="background-color: white"></div>
                         <div class="color" style="background-color: red"></div>
@@ -49,7 +48,7 @@
                     <div class="brushSlider">
                         <input type="range" name="brush-size" id="brush-size" min="1" max="10" />
                     </div>
-                    <img src="Imgs/brush.png" alt="붓">
+                    <img src="Imgs/brush.png" alt="붓" title="선 그리기(클릭 시 굵기 조절 / 더블 클릭시 굵기 조절 창 내림)">
                 </div>
             </nav>
         </main>
