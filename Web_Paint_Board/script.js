@@ -82,10 +82,8 @@ if (brushSize) {
 
 // 선 굵기 조정 함수
 function handleInput() {
-    console.log("인풋 감지");
     let sizeValue = brushSize.value;
     ctx.lineWidth = sizeValue;
-    console.log(sizeValue);
 }
 
 
@@ -99,8 +97,8 @@ if (bucket) { // 채우기 통 클릭 감지
 let filling = false; // paint 모드 -> fill || !paint 모드 -> paint 실행
 
 function fillCanvas() { // 채우기 함수
+    ctx.fillRect(0, 0, canvas.width, canvas.height); // 캔버스 크기만큼 채우기
     if (filling) {
-        ctx.fillRect(0, 0, canvas.width, canvas.height); // 캔버스 크기만큼 채우기
     }
 }
 
@@ -120,12 +118,14 @@ function handleMode() { // bucket 클릭 시 실행 함수
 /// 전체 지우기 기능
 const eraser = document.querySelector(".eraser");
 
-eraser.addEventListener("click", () => {
+eraser.addEventListener("click", eraserHandle);
+
+function eraserHandle() {
     const nowColor = ctx.fillStyle; // 마지막 색상 저장
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, canvas.width, canvas.height); // 초기화
     ctx.fillStyle = nowColor; // 마지막 색상으로 다시 설정
-});
+}
 
 
 /// 저장 기능
