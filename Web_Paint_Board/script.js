@@ -15,6 +15,9 @@ ctx.strokeStyle = INITIAL_COLOR;
 ctx.fillStyle = INITIAL_COLOR;
 ctx.lineWidth = 2.5;
 
+canvas.width = 1800;
+canvas.height = 600;
+
 
 // canvas event 감지
 let painting = false;
