@@ -74,8 +74,10 @@ a {
 /* canvas */
 #canvasWrap {
     margin: auto;
-    width: 94vw;
-    height: 65vh;
+    /* width: 94vw; */
+    /* height: 65vh; */
+    width: 1800px;
+    height: 600px;
     background-color: #fff;
     box-shadow: var(--box-shadow);
     border-radius: var(--border-radius);
