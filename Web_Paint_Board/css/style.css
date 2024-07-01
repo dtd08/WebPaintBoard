@@ -51,7 +51,7 @@ a {
     position: absolute;
     width: 90px;
     height: 40px;
-    top: 10px;
+    top: 20px;
     line-height: 40px;
     border-radius: 7px;
     font-family: "Do Hyeon", sans-serif;
@@ -74,8 +74,8 @@ a {
 /* canvas */
 #canvasWrap {
     margin: auto;
-    /* width: 94vw; */
-    /* height: 65vh; */
+    /* width: 94vw;
+    height: 65vh; */
     width: 1800px;
     height: 600px;
     background-color: #fff;
