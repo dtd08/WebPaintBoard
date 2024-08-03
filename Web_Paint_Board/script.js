@@ -101,8 +101,6 @@ let filling = false; // paint 모드 -> fill || !paint 모드 -> paint 실행
 
 function fillCanvas() { // 채우기 함수
     ctx.fillRect(0, 0, canvas.width, canvas.height); // 캔버스 크기만큼 채우기
-    if (filling) {
-    }
 }
 
 function handleMode() { // bucket 클릭 시 실행 함수
